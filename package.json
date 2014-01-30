@@ -1,0 +1,34 @@
+{
+  "author": {
+    "name": "Alexandre Roba"
+  },
+  "name": "cqrsjs",
+  "description": "Give your CQRS application some structure",
+  "version": "0.0.1",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlexandreRoba/cqrsjs.git"
+  },
+  "keywords": [
+    "cqrs",
+    "eventstore",
+    "ddd",
+    "eventsourcing"
+  ],
+  "main": "./index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">= v0.6.15"
+  },
+  "dependencies": {
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "mocha": "~1.17.1",
+    "backbone": "~1.1.0"
+  }
+}
