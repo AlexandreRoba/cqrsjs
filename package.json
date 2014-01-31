@@ -29,6 +29,9 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "mocha": "~1.17.1",
-    "backbone": "~1.1.0"
+    "backbone": "~1.1.0",
+    "should": "~3.1.2",
+    "assert": "~1.1.0",
+    "expect.js": "~0.2.0"
   }
 }
