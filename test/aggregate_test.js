@@ -31,7 +31,7 @@ suite('Aggregate', function(){
         });
     });
 
-    suite("")
+    suite("loadFromHistory",function(){
 
-
+    });
 });
