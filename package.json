@@ -24,7 +24,8 @@
     "node": ">= v0.6.15"
   },
   "dependencies": {
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
