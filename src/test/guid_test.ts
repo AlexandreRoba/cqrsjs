@@ -1,8 +1,8 @@
-/**
- * Created by alexandreroba on 05/02/14.
- */
-require('should');
-var Guid = require("./../lib/base/Guid");
+///<reference path='..\..\mocha.d.ts' />
+///<reference path='..\..\should.d.ts' />
+
+import should = require('should');
+import Guid = require("./../guid");
 
 describe('Guid',function(){
     describe('constructor',function(){

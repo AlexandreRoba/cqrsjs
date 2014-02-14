@@ -1,2 +1,5 @@
 gruntfile.js
-test/
+src/
+spikes/
+node_modules/
+*.d.ts
