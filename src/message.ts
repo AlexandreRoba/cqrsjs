@@ -1,0 +1,6 @@
+
+interface Message {
+
+}
+
+export = Message;

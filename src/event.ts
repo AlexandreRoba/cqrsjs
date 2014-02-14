@@ -1,7 +1,8 @@
 
 import Guid = require("./guid");
+import Message = require("./message");
 
-class Event{
+class Event implements Message{
     private _id:Guid;
     private _revision:number;
 

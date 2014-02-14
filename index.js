@@ -1,7 +1,8 @@
 module.exports = {
     VERSION: require('./package.json').version,
-    uuid: require('./lib/utils').uuid,
-//    domain: require('./lib/domain'),
-    AggregateRoot: require('./lib/base/aggregateRoot'),
+    Guid: require('./lib/guid'),
+    AggregateRoot: require('./lib/aggregateRoot'),
+    Event: require('./lib/event'),
+    Command: require('./lib/command'),
     Repository: require('./lib/base/repository')
 };
