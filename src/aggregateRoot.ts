@@ -1,13 +1,12 @@
 ///<reference path='..\underscore.d.ts' />
 
 import Guid = require("./guid");
-import Event = require("./event");
+import EventBase = require("./eventBase");
 
 class AggregateRoot{
     private _id:Guid;
     private _version:number;
-    /*jshint -W009 */
-    private _uncommittedEvents = new Array<Event>();
+    private _uncommittedEvents = new Array<EventBase>();
 
     get Id():Guid{
         return this._id;
@@ -17,30 +16,28 @@ class AggregateRoot{
         return this._version;
     }
 
-    getUncommittedChanges(){
+    get UncommittedChanges():Array<EventBase>{
         return this._uncommittedEvents;
     }
 
-    markChangesAsCommitted(){
+    markChangesAsCommitted=()=>{
         this._uncommittedEvents.length=0;
     }
 
-    loadFromHistory(history:Array<Event>){
-        var _this = this;
-        _this._uncommittedEvents.forEach(function(event){
-            _this.apply(event,true);
-        });
+    loadFromHistory = (history:Array<EventBase>) => {
+        history.forEach(function(event){
+            this.applyChange(event,true);
+        },this);
     }
 
-    apply(event:Event,history:boolean){
+    applyChange = (event:any,isHistory?:boolean) => {
         //Find out the method to apply the function to
-
-        if(!history)
+        var eventName = event.constructor.name;
+        var applyEvent = this["Apply"+eventName];
+        applyEvent(event);
+        if(!isHistory)
             this._uncommittedEvents.push(event);
-
     }
-
-
 }
 
 export = AggregateRoot;

@@ -1,11 +1,27 @@
 ///<reference path='..\underscore.d.ts' />
 var Guid = require("./guid");
-var Event = require("./event");
+var EventBase = require("./eventBase");
 
 var AggregateRoot = (function () {
     function AggregateRoot() {
-        /*jshint -W009 */
+        var _this = this;
         this._uncommittedEvents = new Array();
+        this.markChangesAsCommitted = function () {
+            _this._uncommittedEvents.length = 0;
+        };
+        this.loadFromHistory = function (history) {
+            history.forEach(function (event) {
+                this.applyChange(event, true);
+            }, _this);
+        };
+        this.applyChange = function (event, isHistory) {
+            //Find out the method to apply the function to
+            var eventName = event.constructor.name;
+            var applyEvent = _this["Apply" + eventName];
+            applyEvent(event);
+            if (!isHistory)
+                _this._uncommittedEvents.push(event);
+        };
     }
     Object.defineProperty(AggregateRoot.prototype, "Id", {
         get: function () {
@@ -23,26 +39,13 @@ var AggregateRoot = (function () {
         configurable: true
     });
 
-    AggregateRoot.prototype.getUncommittedChanges = function () {
-        return this._uncommittedEvents;
-    };
-
-    AggregateRoot.prototype.markChangesAsCommitted = function () {
-        this._uncommittedEvents.length = 0;
-    };
-
-    AggregateRoot.prototype.loadFromHistory = function (history) {
-        var _this = this;
-        _this._uncommittedEvents.forEach(function (event) {
-            _this.apply(event, true);
-        });
-    };
-
-    AggregateRoot.prototype.apply = function (event, history) {
-        //Find out the method to apply the function to
-        if (!history)
-            this._uncommittedEvents.push(event);
-    };
+    Object.defineProperty(AggregateRoot.prototype, "UncommittedChanges", {
+        get: function () {
+            return this._uncommittedEvents;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return AggregateRoot;
 })();
 

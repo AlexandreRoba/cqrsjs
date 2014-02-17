@@ -1,9 +1,9 @@
 var Guid = require("./guid");
 
-var Event = (function () {
-    function Event() {
+var EventBase = (function () {
+    function EventBase() {
     }
-    Object.defineProperty(Event.prototype, "id", {
+    Object.defineProperty(EventBase.prototype, "id", {
         get: function () {
             return this._id;
         },
@@ -11,15 +11,15 @@ var Event = (function () {
         configurable: true
     });
 
-    Object.defineProperty(Event.prototype, "revision", {
+    Object.defineProperty(EventBase.prototype, "revision", {
         get: function () {
             return this._revision;
         },
         enumerable: true,
         configurable: true
     });
-    return Event;
+    return EventBase;
 })();
 
-module.exports = Event;
-//# sourceMappingURL=event.js.map
+module.exports = EventBase;
+//# sourceMappingURL=eventBase.js.map

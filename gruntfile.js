@@ -6,17 +6,6 @@ module.exports = function(grunt){
         clean:{
             output:["lib/**/*.js",'lib/**/*.map']
         },
-        jshint:{
-            //define the file to lint
-            files:["lib/**/*.js","test/**/*.js","gruntfile.js"],
-            options:{
-                globals:{
-
-
-                }
-            }
-
-        },
         typescript: {
             base: {
                 src: ['src/**/*.ts'],
@@ -41,12 +30,11 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-mocha-test');
 
     grunt.registerTask('test',['mochaTest']);
-    grunt.registerTask('default',['clean:output','typescript','jshint']);
-    grunt.registerTask('travis',['clean:output','typescript','jshint']);
+    grunt.registerTask('default',['clean:output','typescript','test']);
+    grunt.registerTask('travis',['clean:output','typescript']);
 };

@@ -2,7 +2,7 @@
 import Guid = require("./guid");
 import Message = require("./message");
 
-class Event implements Message{
+class EventBase implements Message{
     private _id:Guid;
     private _revision:number;
 
@@ -15,4 +15,4 @@ class Event implements Message{
     }
 }
 
-export = Event;
+export = EventBase;

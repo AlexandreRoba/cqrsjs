@@ -8,4 +8,6 @@ var Command = (function () {
     }
     return Command;
 })();
+
+module.exports = Command;
 //# sourceMappingURL=command.js.map

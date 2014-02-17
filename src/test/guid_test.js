@@ -1,5 +1,6 @@
 ///<reference path='..\..\mocha.d.ts' />
 ///<reference path='..\..\should.d.ts' />
+require('should');
 var Guid = require("./../guid");
 
 describe('Guid', function () {
@@ -7,7 +8,7 @@ describe('Guid', function () {
         describe('with a valid guid string', function () {
             it('should initialize the Guid with the string', function () {
                 var sut = new Guid("9215C203-DAF0-4AD9-AD21-FAC6BB07E317");
-                sut.toString().should.be.equal("9215C203-DAF0-4AD9-AD21-FAC6BB07E317");
+                sut.toString().should.equal("9215C203-DAF0-4AD9-AD21-FAC6BB07E317");
             });
         });
         describe('with an invalid string', function () {

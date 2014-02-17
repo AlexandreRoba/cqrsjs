@@ -8,3 +8,5 @@ import Message = require("./message");
 class Command implements Message {
 
 }
+
+export = Command;
