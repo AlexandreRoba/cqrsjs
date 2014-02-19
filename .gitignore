@@ -2,3 +2,5 @@
 node_modules/
 lib/**/*.js
 lib/**/*.map
+src/**/*.js
+src/**/*.map
