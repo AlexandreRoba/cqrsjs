@@ -36,5 +36,5 @@ module.exports = function(grunt){
 
     grunt.registerTask('test',['mochaTest']);
     grunt.registerTask('default',['clean:output','typescript','test']);
-    grunt.registerTask('travis',['clean:output','typescript']);
+    grunt.registerTask('travis',['clean:output','typescript','test']);
 };
