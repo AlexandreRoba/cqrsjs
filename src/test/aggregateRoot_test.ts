@@ -18,22 +18,21 @@ class MoqAggregate extends AggregateRoot{
     public MoqAggregateCreatedApplied:boolean=false;
     public MoqAggregateUpdatedApplied:boolean=false;
 
-    CreateMoq = () => {
+    CreateMoq=()=>{
         var evt = new MoqAggregateCreated();
         this.applyChange(evt,false);
     }
 
-    UpdateMoq = () => {
+    UpdateMoq=()=>{
         var evt = new MoqAggregateUpdated();
         this.applyChange(evt,false);
     }
 
-
-    private ApplyMoqAggregateCreated = (event:MoqAggregateCreated) => {
+    private ApplyMoqAggregateCreated = (event:MoqAggregateCreated)=>{
         this.MoqAggregateCreatedApplied = true;
     }
 
-    private ApplyMoqAggregateUpdated = (event:MoqAggregateUpdated) => {
+    private ApplyMoqAggregateUpdated = (event:MoqAggregateUpdated)=>{
         this.MoqAggregateUpdatedApplied = true;
     }
 }
