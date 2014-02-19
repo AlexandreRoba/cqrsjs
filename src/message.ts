@@ -1,6 +1,7 @@
 
 interface Message {
 
+
 }
 
 export = Message;

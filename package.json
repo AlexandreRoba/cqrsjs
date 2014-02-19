@@ -3,7 +3,7 @@
     "name": "Alexandre Roba"
   },
   "name": "cqrsjs",
-  "description": "Give your CQRS application some structure",
+  "description": "Build CQRS application with JavaScript",
   "version": "0.0.1",
   "private": false,
   "repository": {
@@ -38,7 +38,9 @@
     "grunt-typescript": "~0.2.7",
     "grunt-contrib-clean": "~0.5.0",
     "typescript": "~0.9.5",
-    "grunt-mocha-test": "~0.9.0"
+    "grunt-mocha-test": "~0.9.0",
+    "grunt-push-release": "~0.1.1",
+    "grunt-changelog": "~0.1.4"
   },
   "scripts": {
     "test": "./node_modules/grunt-cli/bin/grunt travis"
