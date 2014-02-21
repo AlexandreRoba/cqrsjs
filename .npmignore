@@ -1,5 +1,12 @@
-gruntfile.js
+lib/test/
 src/
 spikes/
 node_modules/
-*.d.ts
+gruntfile.js
+mocha.d.ts
+node.d.ts
+should.d.ts
+underscore.d.ts
+.gitignore
+.npmignore
+.travis.yml

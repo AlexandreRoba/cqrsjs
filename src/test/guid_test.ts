@@ -44,9 +44,4 @@ describe('Guid',function(){
             });
         });
     });
-    describe('Hello',function(){
-        it('World',function(){
-
-        })
-    })
 });
