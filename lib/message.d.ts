@@ -1,3 +1,0 @@
-interface Message {
-}
-export = Message;
