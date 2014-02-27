@@ -7,11 +7,23 @@ module.exports = function(grunt){
             output:["lib/**/*.js",'lib/**/*.map']
         },
         typescript: {
-            base: {
-                src: ['src/**/*.ts'],
+            sourceCode: {
+                src: ['src/*.ts'],
                 dest: 'lib',
                 options: {
-                    module: 'commonjs', //or amd commonjs
+                    module: 'commonjs', //amd commonjs
+                    target: 'es5', //or es3
+                    base_path: 'src/',
+                    sourcemap: false,
+                    declaration: true,
+                    comments: true
+                }
+            },
+            testCode:{
+                src: ['src/test/*.ts'],
+                dest: 'lib/',
+                options: {
+                    module: 'commonjs', //amd commonjs
                     target: 'es5', //or es3
                     base_path: 'src/',
                     sourcemap: false,
@@ -62,6 +74,6 @@ module.exports = function(grunt){
 
     grunt.registerTask('release',['bump']);
     grunt.registerTask('test',['mochaTest']);
-    grunt.registerTask('default',['clean:output','typescript','test']);
-    grunt.registerTask('travis',['clean:output','typescript','test']);
+    grunt.registerTask('default',['clean:output','typescript:sourceCode','typescript:testCode','test']);
+    grunt.registerTask('travis',['clean:output','typescript:sourceCode','typescript:sourceCode','test']);
 };
